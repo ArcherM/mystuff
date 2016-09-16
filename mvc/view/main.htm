@@ -1,0 +1,44 @@
+   <include href="header.htm" />
+   <hr>
+   <div class="container">
+      <div class="row">
+	  <check if="{{ @items }}">
+	  <true>
+	  <repeat group="{{ @items }}" key="{{ @c }}" value="{{ @i }}" counter="{{ @ctr }}">
+		<check if="{{ @c%4 == 0 && @c != 0 }}">
+			</div>
+			<div class="row {{ @c}">
+		</check>
+		<div class="col-md-3">
+          <h2>{{ @i.name }}</h2>
+          <p>{{ @i.description }}</p>
+          <p><a class="btn btn-default" href="{{@i.cat}}/{{@i.subcat}}/{{ @i.name }}" role="button">View more »</a></p>
+		<check if="{{ @c  ==  @itemCount }}">
+		  </div>
+		</check>
+        </div>
+	  </repeat>
+	  </true>
+	  <false>
+	  <div class="col-md-3">
+          <h3>You have no items, sad!</h3>
+        </div>
+		</div>
+	  </false>
+	  </check>
+       
+	   <hr>
+
+      <footer>
+        
+      </footer>
+    </div> 
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://archerm.com/mystuff/ui/css/my.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="#">MY STUFF (LOGO)</a>
+		  
+		   <a class="navbar-brand" href="http://archerm.com/mystuff/about">ABOUT</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+		<a class="navbar-brand navbar-right" href="http://archerm.com/mystuff/logout">LOGOUT</a>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+</nav>
+	<div class="container fluid">
+	    <div class="row small-pad-top">
+			<repeat group="{{ @mainCats }}" key="{{ @ikey }}" value="{{ @val }}">
+			<div class="col-md-3">
+				<div class="input-group-btn text-center"> 
+					<a type="button" class="btn btn-default" href="{{@val.name}}">{{ @val.name }}</a> 
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> 
+					<ul class="dropdown-menu"> 
+					<repeat group="{{ @val.sc }}" key="{{ @kap }}" value="{{ @subcat }}">
+					<li><a href="{{@val.name}}/{{@subcat.name}}">{{ @subcat.name }}</a></li>
+					</repeat>
+					</ul>
+				</div>
+			</div>
+			</repeat>
+			<check if="{{ @extraCats }}">
+				<div class="col-md-3">
+				<div class="input-group-btn text-center"> 
+				<button type="button" class="btn btn-default">More...</button> 
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button>
+				<ul class="dropdown-menu"> 
+				<repeat group="{{ @extraCats }}" key="{{ @key }}" value="{{ @ecVal }}">
+					<li><a href="{{ @ecVal.name }}">{{ @ecVal.name }}</a></li>
+					<repeat group="{{ @ecVal.sc }}" value="{{ @scVal }}">
+					<li><a href="{{ @ecVal.name }}/{{ @scVal.name }}">--{{ @scVal.name }}</a></li>
+					</repeat>
+				</repeat>
+				</ul>
+				</div>
+				</div>
+			</check>
+		</div>
